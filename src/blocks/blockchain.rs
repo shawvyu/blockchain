@@ -2,6 +2,8 @@ use tracing::info;
 
 use super::Block;
 
+const CURR_BITS:usize=8;
+
 pub struct Blockchain {
     blocks: Vec<Block>,
     height: usize,
@@ -13,7 +15,7 @@ impl Blockchain {
      */
     pub fn new() -> Self {
         Self {
-            blocks: vec![Block::create_genesis_block()],
+            blocks: vec![Block::create_genesis_block(CURR_BITS)],
             height: 0,
         }
     }
@@ -23,7 +25,7 @@ impl Blockchain {
      */
     pub fn mine_block(&mut self, data: &str) {
         let prev_block = self.blocks.last().unwrap();
-        let block = Block::new(data, prev_block.get_hash().as_str());
+        let block = Block::new(data, prev_block.get_hash().as_str(),CURR_BITS);
         self.blocks.push(block);
         self.height += 1;
     }

@@ -1,18 +1,22 @@
-use serde::Serialize;
-use crypto::{sha3::Sha3,digest::Digest};
 use crate::error::BlockchainError;
+use crypto::{digest::Digest, sha3::Sha3};
+use serde::Serialize;
 
-
-
-pub fn serialize<T>(data:&T)->Result<Vec<u8>,BlockchainError>
+pub fn serialize<T>(data: &T) -> Result<Vec<u8>, BlockchainError>
 where
-    T:Serialize + ?Sized
+    T: Serialize + ?Sized,
 {
     Ok(bincode::serialize(data)?)
 }
 
-pub fn hash_to_str(data:&[u8])->String{
-    let mut hasher=Sha3::sha3_256();
+pub fn hash_to_str(data: &[u8]) -> String {
+    let mut hasher = Sha3::sha3_256();
     hasher.input(data);
     hasher.result_str()
+}
+
+pub fn hash_to_u8(data: &[u8], out: &mut [u8]) {
+    let mut hasher = Sha3::sha3_256();
+    hasher.input(data);
+    hasher.result(out);
 }
