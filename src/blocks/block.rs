@@ -4,7 +4,7 @@ use serde::{Deserialize, Serialize};
 
 use super::pow::ProofOfWork;
 
-#[derive(Debug, Serialize, Deserialize, PartialEq, Eq, Clone)]
+#[derive(Debug, Serialize, Deserialize, PartialEq, Eq, Clone,Default)]
 pub struct BlockHeader {
     /**
      * 时间戳
@@ -35,7 +35,7 @@ impl BlockHeader {
     }
 }
 
-#[derive(Debug, Serialize, Deserialize, PartialEq, Eq)]
+#[derive(Debug, Serialize, Deserialize, PartialEq, Eq,Clone,Default)]
 pub struct Block {
     header: BlockHeader,
     data: String,
