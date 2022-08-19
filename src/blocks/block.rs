@@ -1,8 +1,6 @@
 use chrono::Utc;
 use serde::{Deserialize, Serialize};
 
-#[warn(unused_imports)]
-use crate::utils::{hash_to_str, serialize};
 
 use super::pow::ProofOfWork;
 

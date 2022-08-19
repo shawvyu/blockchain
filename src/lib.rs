@@ -1,8 +1,10 @@
 mod blocks;
 mod utils;
 mod error;
+mod storage;
 
 pub use blocks::*;
+pub use storage::*;
 
 #[cfg(test)]
 mod tests {
