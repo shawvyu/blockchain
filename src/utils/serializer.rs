@@ -1,12 +1,20 @@
 use crate::error::BlockchainError;
 use crypto::{digest::Digest, sha3::Sha3};
-use serde::Serialize;
+use serde::{Serialize, Deserialize};
 
 pub fn serialize<T>(data: &T) -> Result<Vec<u8>, BlockchainError>
 where
     T: Serialize + ?Sized,
 {
     Ok(bincode::serialize(data)?)
+}
+
+#[allow(dead_code)]
+pub fn deserialize<'a,T>(data:&'a [u8])->Result<T,BlockchainError>
+where
+    T:Deserialize<'a>+?Sized
+{
+    Ok(bincode::deserialize(data)?)
 }
 
 pub fn hash_to_str(data: &[u8]) -> String {

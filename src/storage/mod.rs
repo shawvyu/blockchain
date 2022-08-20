@@ -2,6 +2,8 @@ use crate::{error::BlockchainError, Block};
 
 mod sleddb;
 
+pub use sleddb::SledDb;
+
 pub const TIP_KEY: &str = "tip_hash";
 pub const HEIGHT: &str = "height";
 pub const TABLE_OF_BLOCK: &str = "blocks";

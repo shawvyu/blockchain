@@ -1,10 +1,9 @@
 use chrono::Utc;
 use serde::{Deserialize, Serialize};
 
-
 use super::pow::ProofOfWork;
 
-#[derive(Debug, Serialize, Deserialize, PartialEq, Eq, Clone,Default)]
+#[derive(Debug, Serialize, Deserialize, PartialEq, Eq, Clone, Default)]
 pub struct BlockHeader {
     /**
      * 时间戳
@@ -35,7 +34,7 @@ impl BlockHeader {
     }
 }
 
-#[derive(Debug, Serialize, Deserialize, PartialEq, Eq,Clone,Default)]
+#[derive(Debug, Serialize, Deserialize, PartialEq, Eq, Clone, Default)]
 pub struct Block {
     header: BlockHeader,
     data: String,
@@ -68,8 +67,8 @@ impl Block {
         self.header.clone()
     }
 
-    pub fn set_hash(&mut self,hash:String) {
-        self.hash=hash
+    pub fn set_hash(&mut self, hash: String) {
+        self.hash = hash
     }
 
     pub fn set_nonce(&mut self, nonce: usize) {
