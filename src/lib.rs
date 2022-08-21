@@ -2,9 +2,11 @@ mod blocks;
 mod utils;
 mod error;
 mod storage;
+mod transactions;
 
 pub use blocks::*;
 pub use storage::*;
+pub use transactions::*;
 
 #[cfg(test)]
 mod tests {
