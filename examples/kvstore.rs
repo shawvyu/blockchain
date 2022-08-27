@@ -5,7 +5,7 @@ use futures::StreamExt;
 use libp2p::{
     kad::{store::MemoryStore, Kademlia, KademliaEvent, PeerRecord, QueryResult, Record, record::Key, Quorum},
     mdns::{Mdns, MdnsEvent},
-    swarm::{behaviour, NetworkBehaviourEventProcess, SwarmBuilder, SwarmEvent},
+    swarm::{NetworkBehaviourEventProcess, SwarmBuilder, SwarmEvent},
     NetworkBehaviour, PeerId, identity,
 };
 use tokio::io::{self,AsyncBufReadExt};
